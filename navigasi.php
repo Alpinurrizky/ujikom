@@ -12,21 +12,12 @@
                                                                     echo 'active';
                                                                 } ?>">Dashboard</a></h1>
       <ul class="main-nav">
-          <li><a href="outlet.php" class="a <?php if ($title == 'outlet') {
-                                                                        echo 'active';
-                                                                    } ?>">Data Outlet</a></li>
-          <li><a href="paket.php" class="a <?php if ($title == 'paket') {
-                                                                    echo 'active';
-                                                                } ?>">Data Paket</a></li>
           <li><a href="pelanggan.php" class="a <?php if ($title == 'pelanggan') {
                                                                         echo 'active';
                                                                     } ?>">Data Pelanggan</a></li>
           <li><a href="transaksi.php" class="a <?php if ($title == 'transaksi') {
                                                                         echo 'active';
                                                                     } ?>">Data Transaksi</a></li>
-          <li><a href="pengguna.php" class="a <?php if ($title == 'pengguna') {
-                                                                        echo 'active';
-                                                                    } ?>">Data Pengguna</a></li>
           <li><a href="laporan.php" class="a <?php if ($title == 'laporan') {
                                                                         echo 'active';
                                                                     } ?>">Laporan</a></li>

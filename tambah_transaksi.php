@@ -20,7 +20,7 @@ form {
   
 }
 
-
+/* Style the label to display next to the inputs */
 label {
 
   padding: 12px 12px 12px 0;
@@ -41,7 +41,7 @@ button {
             font-family : Arial,Helvetica, sans-serif ;
 }
 
-
+/* Style the submit button */
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -66,28 +66,28 @@ select {
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
-
+/* Style the container */
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
 
-
+/* Floating column for labels: 25% width */
 .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
 }
 
-
+/* Floating column for inputs: 75% width */
 .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
 }
 
-
+/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -121,7 +121,7 @@ select {
            
 }
 
-
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
@@ -166,30 +166,6 @@ if (isset($_POST['btn-simpan'])) {
         $query5 = mysqli_query($conn, "SELECT * FROM paket_cuci WHERE id_paket = $id_paket");
         $paket_harga = mysqli_fetch_assoc($query5);
         $total = $paket_harga['harga'] * $qty;
-
-        if($biaya_tambah != 0 && $pajak != 0 && $diskon != 0) {
-            $total3 = $total1 - ($total1 * $diskon / 100);
-            $total2 = $biaya_tambah + $total3;
-            $total = $total2 + ($total2 * $pajak / 100);
-        } elseif ($biaya_tambah != 0 && $diskon != 0){
-            $total2 = $total1 - ($total1 * $diskon / 100);
-            $total = $biaya_tambah + $total2;
-        } elseif ($biaya_tambah != 0 && $pajak != 0){
-            $total2 = $total1 + $biaya_tambah;
-            $total = $total2 +($total2 * $pajak / 100);
-        } elseif ($diskon != 0 && $pajak != 0){
-            $total2 = $total1 - ($total1 * $diskon / 100);
-            $total2 = $total1 + ($total1 * $pajak / 100);
-        } elseif ($biaya_tambah != 0){
-            $total = $total1 + $biaya_tambah ;
-        } elseif ($diskon != 0){
-            $total = $total1 - ($total1 * $diskon / 100);
-        } elseif ($pajak != 0){
-            $total = $total1 - ($total1 * $pajak / 100);
-        } else {
-            $total = $total1 ;
-        }
-
         $kode_invoice;
         $query6 = mysqli_query($conn, "SELECT * FROM transaksi WHERE kode_invoice = '" . $kode_invoice . "'");
         $transaksi = mysqli_fetch_assoc($query6);
@@ -198,7 +174,7 @@ if (isset($_POST['btn-simpan'])) {
         $query_detail = "INSERT INTO detail_transaksi (id_transaksi, id_paket, qty, total_harga) VALUES ('$id_transaksi', '$id_paket', '$qty', '$total')";
         $insert_detail = mysqli_query($conn, $query_detail);
         if ($insert_detail == 1) {
-
+            // $_SESSION['msg'] = 'Berhasil menambahkan ';
             header('location:transaksi_sukses.php?id=' . $id_transaksi);
         } else {
             $_SESSION['msg'] = "<div class='alert alert-danger'>Gagal transaksi!!!</div>";

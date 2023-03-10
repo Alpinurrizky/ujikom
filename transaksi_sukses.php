@@ -1,6 +1,7 @@
 <?php
 $title = 'Transaksi Sukses';
 require 'koneksi.php';
+require 'header.php';
 
 $query = "SELECT transaksi.*, pelanggan.nama_pelanggan, detail_transaksi.total_harga FROM transaksi INNER JOIN pelanggan ON pelanggan.id_pelanggan = transaksi.id_pelanggan INNER JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id_transaksi WHERE transaksi.id_transaksi = " . $_GET['id'];
 $transaksi = mysqli_query($conn, $query);
@@ -45,3 +46,4 @@ $data = mysqli_fetch_assoc($transaksi);
         </div>
     </div>
 </div>
+<?php require 'footer.php'; ?>

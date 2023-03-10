@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION) {
-    if ($_SESSION['role'] == 'admin') {
+    if ($_SESSION['role'] == 'kasir') {
     } else {
         header("location:../index.php");
     }

@@ -12,12 +12,6 @@
                                                                     echo 'active';
                                                                 } ?>">Dashboard</a></h1>
       <ul class="main-nav">
-          <li><a href="pelanggan.php" class="a <?php if ($title == 'pelanggan') {
-                                                                        echo 'active';
-                                                                    } ?>">Data Pelanggan</a></li>
-          <li><a href="transaksi.php" class="a <?php if ($title == 'transaksi') {
-                                                                        echo 'active';
-                                                                    } ?>">Data Transaksi</a></li>
           <li><a href="laporan.php" class="a <?php if ($title == 'laporan') {
                                                                         echo 'active';
                                                                     } ?>">Laporan</a></li>
